@@ -1,17 +1,18 @@
-package com.jkc.mydesk.space.adapter.out.persistence;
+package com.jkc.mydesk.desk.adapter.out.persistence;
 
-import com.jkc.mydesk.common.domain.model.BaseEntity;
-import com.jkc.mydesk.user.domain.model.User;
+import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
+import com.jkc.mydesk.user.adapter.out.persistence.UserJpaEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
-@Builder
 @Getter
-@Table(name = "p_space")
+@SuperBuilder
+@Table(name = "p_desk")
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class SpaceJpaEntity extends BaseEntity {
+public class DeskJpaEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,5 +21,5 @@ public class SpaceJpaEntity extends BaseEntity {
 
 
     @OneToOne(fetch = FetchType.LAZY)
-    private User owner;
+    private UserJpaEntity owner;
 }

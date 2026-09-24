@@ -1,24 +1,25 @@
-package com.jkc.mydesk.space.application.port.out;
+package com.jkc.mydesk.desk.application.port.out;
 
-import com.jkc.mydesk.space.adapter.out.persistence.SpaceJapRepository;
-import com.jkc.mydesk.space.adapter.out.persistence.SpacePersistenceMapper;
-import com.jkc.mydesk.space.domain.model.Space;
-import com.jkc.mydesk.space.domain.repository.SpaceRepository;
+import com.jkc.mydesk.desk.adapter.out.persistence.DeskJapRepository;
+import com.jkc.mydesk.desk.adapter.out.persistence.DeskJpaEntity;
+import com.jkc.mydesk.desk.adapter.out.persistence.DeskPersistenceMapper;
+import com.jkc.mydesk.desk.domain.model.Desk;
+import com.jkc.mydesk.desk.domain.repository.DeskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 @RequiredArgsConstructor
-public class SpaceRepositoryPort implements SpaceRepository {
-    private final SpaceJapRepository spaceJapRepository;
-    private final SpacePersistenceMapper persistenceMapper;
+public class DeskRepositoryPort implements DeskRepository {
+    private final DeskJapRepository deskJapRepository;
+    private final DeskPersistenceMapper persistenceMapper;
 
     @Override
-    public Space save(Space space) {
-        return spaceJapRepository.save(
-                persistenceMapper.toEntity(space)
+    public Desk save(Desk desk) {
+        DeskJpaEntity entity = persistenceMapper.toEntity(desk);
+
+        return persistenceMapper.toDomain(
+                deskJapRepository.save(entity)
         );
     }
 }

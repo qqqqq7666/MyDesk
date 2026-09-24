@@ -1,4 +1,7 @@
 package com.jkc.mydesk.desk.adapter.in.web.dto.request;
 
-public record DeskSaveRequest() {
+public record DeskSaveRequest(
+        String name,
+        String description
+) {
 }

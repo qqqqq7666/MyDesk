@@ -1,7 +1,7 @@
 package com.jkc.mydesk.folder.domain.model;
 
-import com.jkc.mydesk.common.domain.model.BaseEntity;
-import com.jkc.mydesk.space.domain.model.Space;
+import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
+import com.jkc.mydesk.desk.adapter.out.persistence.DeskJpaEntity;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +13,7 @@ public class Folder extends BaseEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Space space;
+    private DeskJpaEntity deskJpaEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Folder parent;

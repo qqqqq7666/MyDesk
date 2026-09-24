@@ -1,13 +1,20 @@
-package com.jkc.mydesk.user.domain.model;
+package com.jkc.mydesk.user.adapter.out.persistence;
 
 import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "p_user")
-public class User extends BaseEntity {
+@Getter
+@SuperBuilder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class UserJpaEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

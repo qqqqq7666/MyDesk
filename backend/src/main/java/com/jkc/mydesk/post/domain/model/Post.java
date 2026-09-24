@@ -1,6 +1,6 @@
 package com.jkc.mydesk.post.domain.model;
 
-import com.jkc.mydesk.common.domain.model.BaseEntity;
+import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
 import com.jkc.mydesk.folder.domain.model.Folder;
 import jakarta.persistence.*;
 

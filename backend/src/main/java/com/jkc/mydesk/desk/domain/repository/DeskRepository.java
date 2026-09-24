@@ -1,9 +1,7 @@
-package com.jkc.mydesk.space.domain.repository;
+package com.jkc.mydesk.desk.domain.repository;
 
-import com.jkc.mydesk.space.domain.model.Space;
+import com.jkc.mydesk.desk.domain.model.Desk;
 
-import java.util.Optional;
-
-public interface SpaceRepository {
-    Space save(Space space);
+public interface DeskRepository {
+    Desk save(Desk desk);
 }

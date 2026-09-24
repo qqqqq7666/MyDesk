@@ -1,4 +1,12 @@
 package com.jkc.mydesk.desk.adapter.in.web.dto.response;
 
-public class DeskSaveResponse {
+import lombok.Builder;
+
+import java.time.LocalDateTime;
+
+@Builder
+public record DeskSaveResponse(
+        String name,
+        LocalDateTime createdDate
+) {
 }
