@@ -3,16 +3,15 @@ package com.jkc.mydesk.desk.adapter.in.web;
 import com.jkc.mydesk.desk.adapter.in.web.dto.request.DeskSaveRequest;
 import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskSaveResponse;
 import com.jkc.mydesk.desk.domain.model.Desk;
-import com.jkc.mydesk.user.adapter.out.persistence.UserJpaEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DeskWebMapper {
-    public Desk toCommand(DeskSaveRequest request, UserJpaEntity owner) {
+    public Desk toCommand(DeskSaveRequest request) {
         return Desk.builder()
                 .name(request.name())
                 .description(request.description())
-                .ownerId(owner.getId())
+                .ownerId(request.ownerId())
                 .build();
     }
 

@@ -20,13 +20,10 @@ import java.util.UUID;
 @RequestMapping("/api/v1/desk")
 public class DeskController {
     private final DeskService deskService;
-    private final UserJpaRepository repository;
 
     @PostMapping
     public ResponseEntity<DeskSaveResponse> save(@RequestBody DeskSaveRequest request) {
-        UserJpaEntity mockup = repository.findById(UUID.fromString("3ed4a118-890c-4b22-aaf5-241ad3e11068"))
-                .orElseThrow();
         return ResponseEntity.created(URI.create("/temp"))
-                .body(deskService.save(request, mockup));
+                .body(deskService.save(request));
     }
 }
