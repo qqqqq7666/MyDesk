@@ -1,78 +1,177 @@
-# React + TypeScript + Vite
+# MyDesk — 핵심 기능 요구사항
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. 사용자 관리
 
-Currently, two official plugins are available:
+### 회원가입
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 이메일과 비밀번호를 이용해 회원가입할 수 있다.
+* 이메일은 중복될 수 없다.
+* 비밀번호는 안전한 방식으로 저장한다.
 
-## React Compiler
+### 로그인
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* 가입한 계정으로 로그인할 수 있다.
+* 로그인한 사용자는 자신의 공간에 접근할 수 있다.
+* 인증되지 않은 사용자는 개인 콘텐츠에 접근할 수 없다.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+### 회원 정보
 
-## Expanding the ESLint configuration
+* 사용자는 닉네임 등의 기본 정보를 조회하고 수정할 수 있다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 2. Desk
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Desk 조회
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* 사용자는 자신의 개인 Desk(공간)을 조회할 수 있다.
+* 개인 Desk에는 사용자가 등록한 글, 사진, 파일 등의 콘텐츠가 표시된다.
 
-```
+### 대시보드
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+* 최근 등록된 콘텐츠를 확인할 수 있다.
+* 콘텐츠 유형별 개수를 확인할 수 있다.
+* 자주 사용하는 폴더 또는 주요 콘텐츠를 확인할 수 있다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 3. 글 관리
 
-```
+### 글 작성
+
+* 사용자는 글을 작성할 수 있다.
+* 글의 제목과 본문을 입력할 수 있다.
+* 글을 특정 폴더에 저장할 수 있다.
+
+### 글 조회
+
+* 작성한 글의 목록을 조회할 수 있다.
+* 특정 글의 상세 내용을 조회할 수 있다.
+
+### 글 수정/삭제
+
+* 작성한 글을 수정할 수 있다.
+* 작성한 글을 삭제할 수 있다.
+
+---
+
+## 4. 파일 관리
+
+### 파일 업로드
+
+* 사용자는 파일을 업로드할 수 있다.
+* 업로드한 파일은 특정 폴더에 저장할 수 있다.
+* 파일의 원본 이름, 크기, 형식 등의 정보를 관리한다.
+
+### 파일 조회
+
+* 업로드한 파일 목록을 조회할 수 있다.
+* 파일의 상세 정보를 확인할 수 있다.
+
+### 파일 다운로드
+
+* 저장된 파일을 다운로드할 수 있다.
+
+### 파일 관리
+
+* 파일 이름을 변경할 수 있다.
+* 파일을 다른 폴더로 이동할 수 있다.
+* 파일을 삭제할 수 있다.
+
+---
+
+## 5. 사진 관리
+
+### 사진 업로드
+
+* 사용자는 이미지를 업로드할 수 있다.
+* 여러 이미지를 한 번에 업로드할 수 있다.
+* 업로드한 사진을 특정 폴더에 저장할 수 있다.
+
+### 사진 조회
+
+* 사진을 갤러리 형태로 조회할 수 있다.
+* 사진을 선택하여 원본 또는 상세 화면을 확인할 수 있다.
+
+### 사진 관리
+
+* 사진을 다른 폴더로 이동할 수 있다.
+* 사진을 삭제할 수 있다.
+
+---
+
+## 6. 폴더 관리
+
+### 폴더 생성
+
+* 사용자는 폴더를 생성할 수 있다.
+* 폴더 내부에 하위 폴더를 생성할 수 있다.
+
+### 폴더 조회
+
+* 폴더 목록을 조회할 수 있다.
+* 폴더 내부의 콘텐츠를 조회할 수 있다.
+* 상위 폴더와 현재 위치를 확인할 수 있다.
+
+### 폴더 관리
+
+* 폴더 이름을 변경할 수 있다.
+* 폴더를 삭제할 수 있다.
+
+---
+
+## 7. 콘텐츠 탐색
+
+### 통합 조회
+
+* 글, 사진, 파일을 하나의 화면에서 조회할 수 있다.
+* 콘텐츠 유형별로 필터링할 수 있다.
+
+### 검색
+
+* 콘텐츠 제목 또는 파일명을 검색할 수 있다.
+* 검색 결과를 콘텐츠 유형별로 필터링할 수 있다.
+
+### 정렬
+
+* 최신순으로 콘텐츠를 조회할 수 있다.
+* 오래된 순으로 콘텐츠를 조회할 수 있다.
+* 파일의 경우 이름, 크기 등을 기준으로 정렬할 수 있다.
+
+---
+
+## 8. 콘텐츠 이동 및 삭제
+
+* 사용자는 자신이 생성하거나 업로드한 콘텐츠를 다른 폴더로 이동할 수 있다.
+* 콘텐츠를 삭제할 수 있다.
+* 삭제된 콘텐츠는 다른 사용자가 접근할 수 없다.
+* 콘텐츠의 소유자는 해당 콘텐츠에 대한 관리 권한을 가진다.
+
+---
+
+# MVP 핵심 범위
+
+초기 구현에서는 다음 기능을 우선 제공한다.
+
+1. 회원가입 / 로그인
+2. 개인 공간 조회
+3. 폴더 생성 / 조회 / 삭제
+4. 글 작성 / 조회 / 수정 / 삭제
+5. 파일 업로드 / 다운로드 / 삭제
+6. 사진 업로드 / 조회 / 삭제
+7. 통합 콘텐츠 조회
+8. 기본 검색 및 필터링
+
+### 이후 확장 기능
+
+* 태그
+* 휴지통 및 복구
+* 파일 미리보기
+* 이미지 썸네일
+* Markdown 에디터
+* 드래그 앤 드롭 업로드
+* 콘텐츠 즐겨찾기
+* 공유 링크
+* 콘텐츠 공개/비공개 설정
+* 여러 개의 개인 공간
+* 버전 관리

@@ -1,21 +1,15 @@
 package com.jkc.mydesk.post.domain.model;
 
-import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
-import com.jkc.mydesk.folder.adapter.out.persistence.FolderJpaEntity;
+import com.jkc.mydesk.common.domain.model.BaseModel;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Entity
-@Table(name = "p_post")
-public class Post extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Getter
+@SuperBuilder
+public class Post extends BaseModel {
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private FolderJpaEntity folderJpaEntity;
-
+    private Long folderId;
     private String title;
-
-    @Lob
     private String content;
 }
