@@ -8,7 +8,7 @@ public class DeskPersistenceMapper {
     public DeskJpaEntity toEntity(Desk desk) {
         return DeskJpaEntity.builder()
                 .id(desk.getId())
-                .owner(desk.getOwner())
+                .ownerId(desk.getOwnerId())
                 .name(desk.getName())
                 .description(desk.getDescription())
                 .build();
@@ -17,7 +17,7 @@ public class DeskPersistenceMapper {
     public Desk toDomain(DeskJpaEntity entity) {
         return Desk.builder()
                 .id(entity.getId())
-                .owner(entity.getOwner())
+                .ownerId(entity.getOwnerId())
                 .name(entity.getName())
                 .description(entity.getDescription())
                 .createdDate(entity.getCreatedDate())

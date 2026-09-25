@@ -1,6 +1,7 @@
 package com.jkc.mydesk.user.adapter.out.persistence;
 
 import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
+import com.jkc.mydesk.user.domain.model.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -24,4 +25,30 @@ public class UserJpaEntity extends BaseEntity {
     private String password;
     @Column(nullable = false)
     private String name;
+
+    public static UserJpaEntity from(User user) {
+        return UserJpaEntity.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .password(user.getPassword())
+                .name(user.getName())
+                .createdDate(user.getCreatedDate())
+                .createdBy(user.getCreatedBy())
+                .lastModifiedDate(user.getLastModifiedDate())
+                .lastModifiedBy(user.getLastModifiedBy())
+                .build();
+    }
+
+    public User toDomain() {
+        return User.builder()
+                .id(id)
+                .email(email)
+                .password(password)
+                .name(name)
+                .createdDate(this.getCreatedDate())
+                .createdBy(this.getCreatedBy())
+                .lastModifiedDate(this.getLastModifiedDate())
+                .lastModifiedBy(this.getLastModifiedBy())
+                .build();
+    }
 }

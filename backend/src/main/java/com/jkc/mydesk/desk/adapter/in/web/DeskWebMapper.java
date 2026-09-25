@@ -12,7 +12,7 @@ public class DeskWebMapper {
         return Desk.builder()
                 .name(request.name())
                 .description(request.description())
-                .owner(owner)
+                .ownerId(owner.getId())
                 .build();
     }
 

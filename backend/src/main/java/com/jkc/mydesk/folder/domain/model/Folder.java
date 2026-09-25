@@ -1,20 +1,15 @@
 package com.jkc.mydesk.folder.domain.model;
 
 import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
-import com.jkc.mydesk.desk.adapter.out.persistence.DeskJpaEntity;
-import jakarta.persistence.*;
+import com.jkc.mydesk.desk.domain.model.Desk;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Entity
-@Table(name = "p_folder")
+@Getter
+@SuperBuilder
 public class Folder extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private DeskJpaEntity deskJpaEntity;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Folder parent;
+    private Long deskId;
+    private Long parentId;
 }

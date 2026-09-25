@@ -23,7 +23,7 @@ public class DeskController {
 
     @PostMapping
     public ResponseEntity<DeskSaveResponse> save(DeskSaveRequest request) {
-        UserJpaEntity mockup = repository.findById(UUID.fromString("ade9311b-3f31-449c-a54a-92525256e2a4"))
+        UserJpaEntity mockup = repository.findById(UUID.fromString("3ed4a118-890c-4b22-aaf5-241ad3e11068"))
                 .orElseThrow();
         return ResponseEntity.created(URI.create("/temp"))
                 .body(deskService.save(request, mockup));

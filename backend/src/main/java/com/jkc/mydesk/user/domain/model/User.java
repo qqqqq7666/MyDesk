@@ -14,32 +14,4 @@ public class User extends BaseModel {
     private String email;
     private String password;
     private String name;
-
-    public UserJpaEntity toEntity() {
-        return UserJpaEntity.builder()
-                .id(id)
-                .email(email)
-                .password(password)
-                .name(name)
-                .createdDate(this.getCreatedDate())
-                .createdBy(this.getCreatedBy())
-                .lastModifiedDate(this.getLastModifiedDate())
-                .lastModifiedBy(this.getLastModifiedBy())
-                .build();
-
-    }
-
-    public static User from(UserJpaEntity entity) {
-        return User.builder()
-                .id(entity.getId())
-                .email(entity.getEmail())
-                .password(entity.getPassword())
-                .name(entity.getName())
-                .createdDate(entity.getCreatedDate())
-                .createdBy(entity.getCreatedBy())
-                .lastModifiedDate(entity.getLastModifiedDate())
-                .lastModifiedBy(entity.getLastModifiedBy())
-                .build();
-
-    }
 }

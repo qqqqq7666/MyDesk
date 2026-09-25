@@ -1,7 +1,7 @@
 package com.jkc.mydesk.post.domain.model;
 
 import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
-import com.jkc.mydesk.folder.domain.model.Folder;
+import com.jkc.mydesk.folder.adapter.out.persistence.FolderJpaEntity;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,7 +12,7 @@ public class Post extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Folder folder;
+    private FolderJpaEntity folderJpaEntity;
 
     private String title;
 
