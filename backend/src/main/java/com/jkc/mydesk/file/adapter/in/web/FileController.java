@@ -2,7 +2,7 @@ package com.jkc.mydesk.file.adapter.in.web;
 
 import com.jkc.mydesk.file.adapter.in.web.dto.request.FileUploadRequest;
 import com.jkc.mydesk.file.adapter.in.web.dto.response.FileUploadResponse;
-import com.jkc.mydesk.file.application.service.FileService;
+import com.jkc.mydesk.file.application.port.in.FileManagementUseCase;
 import com.jkc.mydesk.file.domain.model.File;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/files")
 public class FileController {
-    private final FileService fileService;
+    private final FileManagementUseCase managementUseCase;
     private final FileWebMapper webMapper;
 
     // TODO Custom Exception 생성 IOException 대신 명확하게
@@ -29,6 +29,6 @@ public class FileController {
         File fileModel = webMapper.toDomain(request);
 
         return ResponseEntity.created(URI.create("/temp"))
-                .body(webMapper.toUploadResponse(fileService.upload(fileModel, request.multipartFile().getInputStream())));
+                .body(webMapper.toUploadResponse(managementUseCase.upload(fileModel, request.multipartFile().getInputStream())));
     }
 }
