@@ -1,26 +1,22 @@
 package com.jkc.mydesk.file.domain.model;
 
-import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
-import com.jkc.mydesk.folder.adapter.out.persistence.FolderJpaEntity;
-import jakarta.persistence.*;
+import com.jkc.mydesk.common.domain.model.BaseModel;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Entity
-@Table(name = "p_file")
-public class File extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Getter
+@SuperBuilder
+public class File extends BaseModel {
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private FolderJpaEntity folderJpaEntity;
-
+    private Long folderId;
     private String originalName;
-
-    private String storedName;
-
-    private String storagePath;
-
+    private String objectKey;
     private String contentType;
+    private long size;
 
-    private Long size;
+    private FileUploadStatus uploadStatus;
+
+    public void changeFileUploadStatus(FileUploadStatus uploadStatus) {
+        this.uploadStatus = uploadStatus;
+    }
 }

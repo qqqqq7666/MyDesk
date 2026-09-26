@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: MyDesk
@@ -11,5 +14,9 @@ spring:
       ddl-auto: update
     show-sql: true
 
-server:
-  port: 8080
+cloudflare:
+  r2:
+    endpoint: ${R2_ENDPOINT}
+    bucket: ${R2_BUCKET_NAME}
+    access-key: ${R2_ACCESS_KEY}
+    secret-key: ${R2_SECRET_KEY}
