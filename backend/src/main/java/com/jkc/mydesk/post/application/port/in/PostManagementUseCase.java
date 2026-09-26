@@ -1,8 +1,7 @@
 package com.jkc.mydesk.post.application.port.in;
 
-import com.jkc.mydesk.post.adapter.in.web.dto.reqeust.PostSaveRequest;
-import com.jkc.mydesk.post.adapter.in.web.dto.response.PostSaveResponse;
+import com.jkc.mydesk.post.domain.model.Post;
 
 public interface PostManagementUseCase {
-    PostSaveResponse save(PostSaveRequest request);
+    Post save(Post request);
 }

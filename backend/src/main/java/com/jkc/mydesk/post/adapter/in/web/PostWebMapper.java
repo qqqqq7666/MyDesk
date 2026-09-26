@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PostWebMapper {
-    public Post toCommand(PostSaveRequest request) {
+    public Post toDomain(PostSaveRequest request) {
         return Post.builder()
                 .title(request.title())
                 .folderId(request.folderId())

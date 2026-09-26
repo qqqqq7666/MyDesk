@@ -3,6 +3,7 @@ package com.jkc.mydesk.post.adapter.in.web;
 import com.jkc.mydesk.post.adapter.in.web.dto.reqeust.PostSaveRequest;
 import com.jkc.mydesk.post.adapter.in.web.dto.response.PostSaveResponse;
 import com.jkc.mydesk.post.application.service.PostService;
+import com.jkc.mydesk.post.domain.model.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +18,13 @@ import java.net.URI;
 @RequestMapping("/api/v1/posts")
 public class PostController {
     private final PostService postService;
+    private final PostWebMapper webMapper;
 
     @PostMapping
     public ResponseEntity<PostSaveResponse> save(@RequestBody PostSaveRequest request) {
+        Post post = postService.save(webMapper.toDomain(request));
 
         return ResponseEntity.created(URI.create("/temp"))
-                .body(postService.save(request));
+                .body(webMapper.toSaveResponse(post));
     }
 }

@@ -13,14 +13,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PostService implements PostManagementUseCase {
     private final PostRepository postRepository;
-    private final PostWebMapper postWebMapper;
 
     @Override
-    public PostSaveResponse save(PostSaveRequest request) {
-        Post post = postWebMapper.toCommand(request);
+    public Post save(Post request) {
 
-        return postWebMapper.toSaveResponse(
-                postRepository.save(post)
-        );
+        return postRepository.save(request);
     }
 }

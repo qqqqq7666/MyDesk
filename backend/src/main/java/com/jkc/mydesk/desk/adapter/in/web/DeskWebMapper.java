@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DeskWebMapper {
-    public Desk toCommand(DeskSaveRequest request) {
+    public Desk toDomain(DeskSaveRequest request) {
         return Desk.builder()
                 .name(request.name())
                 .description(request.description())

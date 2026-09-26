@@ -5,7 +5,7 @@ import com.jkc.mydesk.desk.adapter.in.web.dto.request.DeskSaveRequest;
 import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskSaveResponse;
 import com.jkc.mydesk.desk.application.port.in.DeskManagementUseCase;
 import com.jkc.mydesk.desk.application.port.out.DeskRepository;
-import com.jkc.mydesk.user.adapter.out.persistence.UserJpaEntity;
+import com.jkc.mydesk.desk.domain.model.Desk;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +13,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DeskService implements DeskManagementUseCase {
     private final DeskRepository deskRepository;
-    private final DeskWebMapper webMapper;
 
     @Override
-    public DeskSaveResponse save(DeskSaveRequest request) {
+    public Desk save(Desk request) {
 
-        return webMapper.toSaveResponse(
-                deskRepository.save(webMapper.toCommand(request))
-        );
+        return deskRepository.save(request);
     }
 }

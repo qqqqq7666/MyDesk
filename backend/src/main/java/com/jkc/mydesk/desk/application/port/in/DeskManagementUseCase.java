@@ -1,8 +1,7 @@
 package com.jkc.mydesk.desk.application.port.in;
 
-import com.jkc.mydesk.desk.adapter.in.web.dto.request.DeskSaveRequest;
-import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskSaveResponse;
+import com.jkc.mydesk.desk.domain.model.Desk;
 
 public interface DeskManagementUseCase {
-    DeskSaveResponse save(DeskSaveRequest request);
+    Desk save(Desk request);
 }

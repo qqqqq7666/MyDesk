@@ -1,8 +1,7 @@
 package com.jkc.mydesk.user.application.port.in;
 
-import com.jkc.mydesk.user.adapter.in.web.dto.request.UserRegisterRequest;
-import com.jkc.mydesk.user.adapter.in.web.dto.response.UserRegisterResponse;
+import com.jkc.mydesk.user.domain.model.User;
 
 public interface UserManagementUseCase {
-    UserRegisterResponse register(UserRegisterRequest request);
+    User register(User request);
 }

@@ -1,4 +1,4 @@
-package com.jkc.mydesk.folder.adapter.in.dto.request;
+package com.jkc.mydesk.folder.adapter.in.web.dto.request;
 
 public record FolderSaveRequest(
         String name,

@@ -1,4 +1,4 @@
-package com.jkc.mydesk.folder.adapter.in.dto.response;
+package com.jkc.mydesk.folder.adapter.in.web.dto.response;
 
 import lombok.Builder;
 
