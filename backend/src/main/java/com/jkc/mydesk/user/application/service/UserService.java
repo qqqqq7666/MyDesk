@@ -1,7 +1,7 @@
 package com.jkc.mydesk.user.application.service;
 
 import com.jkc.mydesk.user.application.port.in.UserManagementUseCase;
-import com.jkc.mydesk.user.application.port.out.UserRepository;
+import com.jkc.mydesk.user.application.port.out.UserPort;
 import com.jkc.mydesk.user.domain.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 public class UserService implements
         UserManagementUseCase {
 
-    private final UserRepository userRepository;
+    private final UserPort userPort;
 
     @Override
     public User register(User request) {
 
-        return userRepository.save(request);
+        return userPort.save(request);
     }
 }

@@ -1,6 +1,7 @@
 package com.jkc.mydesk.desk.adapter.in.web;
 
 import com.jkc.mydesk.desk.adapter.in.web.dto.request.DeskSaveRequest;
+import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskListResponse;
 import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskSaveResponse;
 import com.jkc.mydesk.desk.domain.model.Desk;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,13 @@ public class DeskWebMapper {
         return DeskSaveResponse.builder()
                 .name(desk.getName())
                 .createdDate(desk.getCreatedDate())
+                .build();
+    }
+
+    public DeskListResponse toListResponse(Desk desk) {
+        return DeskListResponse.builder()
+                .name(desk.getName())
+                .description(desk.getDescription())
                 .build();
     }
 }

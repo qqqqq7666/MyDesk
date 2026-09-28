@@ -4,6 +4,6 @@ import com.jkc.mydesk.file.domain.model.File;
 
 import java.io.InputStream;
 
-public interface FileRepository {
+public interface FilePort {
     File upload(File file, InputStream inputStream);
 }

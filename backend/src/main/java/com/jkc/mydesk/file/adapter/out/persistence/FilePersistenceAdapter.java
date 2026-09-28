@@ -1,6 +1,6 @@
 package com.jkc.mydesk.file.adapter.out.persistence;
 
-import com.jkc.mydesk.file.application.port.out.FileRepository;
+import com.jkc.mydesk.file.application.port.out.FilePort;
 import com.jkc.mydesk.file.domain.model.File;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +14,7 @@ import java.io.InputStream;
 
 @Component
 @RequiredArgsConstructor
-public class FilePersistenceAdapter implements FileRepository {
+public class FilePersistenceAdapter implements FilePort {
     private final FileJpaRepository fileJpaRepository;
     private final S3Client s3Client;
 

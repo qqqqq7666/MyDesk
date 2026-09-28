@@ -2,6 +2,6 @@ package com.jkc.mydesk.post.application.port.out;
 
 import com.jkc.mydesk.post.domain.model.Post;
 
-public interface PostRepository {
+public interface PostPort {
     Post save(Post post);
 }

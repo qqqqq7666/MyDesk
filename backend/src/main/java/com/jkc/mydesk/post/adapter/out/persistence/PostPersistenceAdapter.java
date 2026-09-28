@@ -1,13 +1,13 @@
 package com.jkc.mydesk.post.adapter.out.persistence;
 
-import com.jkc.mydesk.post.application.port.out.PostRepository;
+import com.jkc.mydesk.post.application.port.out.PostPort;
 import com.jkc.mydesk.post.domain.model.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class PostPersistenceAdapter implements PostRepository {
+public class PostPersistenceAdapter implements PostPort {
 
     private final PostJpaRepository jpaRepository;
 

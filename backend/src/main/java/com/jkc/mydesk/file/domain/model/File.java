@@ -1,6 +1,6 @@
 package com.jkc.mydesk.file.domain.model;
 
-import com.jkc.mydesk.common.domain.model.BaseModel;
+import com.jkc.mydesk.global.domain.model.BaseModel;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

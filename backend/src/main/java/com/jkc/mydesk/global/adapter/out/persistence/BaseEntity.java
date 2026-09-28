@@ -1,4 +1,4 @@
-package com.jkc.mydesk.common.adapter.out.persistence;
+package com.jkc.mydesk.global.adapter.out.persistence;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
@@ -24,7 +24,6 @@ public class BaseEntity {
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdDate;
 
-    // TODO not null
     @CreatedBy
     @Column(updatable = false)
     private String createdBy;

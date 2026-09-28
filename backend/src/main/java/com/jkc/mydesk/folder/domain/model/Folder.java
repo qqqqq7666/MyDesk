@@ -1,7 +1,6 @@
 package com.jkc.mydesk.folder.domain.model;
 
-import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
-import com.jkc.mydesk.desk.domain.model.Desk;
+import com.jkc.mydesk.global.adapter.out.persistence.BaseEntity;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

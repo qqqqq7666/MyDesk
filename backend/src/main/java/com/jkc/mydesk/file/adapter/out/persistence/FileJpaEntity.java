@@ -1,6 +1,6 @@
 package com.jkc.mydesk.file.adapter.out.persistence;
 
-import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
+import com.jkc.mydesk.global.adapter.out.persistence.BaseEntity;
 import com.jkc.mydesk.file.domain.model.File;
 import com.jkc.mydesk.file.domain.model.FileUploadStatus;
 import jakarta.persistence.*;

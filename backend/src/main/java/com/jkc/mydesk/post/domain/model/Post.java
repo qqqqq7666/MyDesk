@@ -1,7 +1,6 @@
 package com.jkc.mydesk.post.domain.model;
 
-import com.jkc.mydesk.common.domain.model.BaseModel;
-import jakarta.persistence.*;
+import com.jkc.mydesk.global.domain.model.BaseModel;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

@@ -1,8 +1,7 @@
 package com.jkc.mydesk.desk.adapter.out.persistence;
 
-import com.jkc.mydesk.common.adapter.out.persistence.BaseEntity;
+import com.jkc.mydesk.global.adapter.out.persistence.BaseEntity;
 import com.jkc.mydesk.desk.domain.model.Desk;
-import com.jkc.mydesk.user.adapter.out.persistence.UserJpaEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
