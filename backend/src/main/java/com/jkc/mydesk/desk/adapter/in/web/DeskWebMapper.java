@@ -25,6 +25,7 @@ public class DeskWebMapper {
 
     public DeskListResponse toListResponse(Desk desk) {
         return DeskListResponse.builder()
+                .id(desk.getId())
                 .name(desk.getName())
                 .description(desk.getDescription())
                 .build();

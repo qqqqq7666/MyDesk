@@ -4,6 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record DeskListResponse(
+        Long id,
         String name,
         String description
 ) {
