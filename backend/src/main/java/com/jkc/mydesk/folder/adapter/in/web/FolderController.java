@@ -6,6 +6,7 @@ import com.jkc.mydesk.folder.adapter.in.web.dto.response.FolderSaveResponse;
 import com.jkc.mydesk.folder.application.port.in.FolderManagementUseCase;
 import com.jkc.mydesk.folder.application.port.in.FolderQueryUseCase;
 import com.jkc.mydesk.folder.domain.model.Folder;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class FolderController {
     private final FolderQueryUseCase queryUseCase;
 
     @PostMapping
-    public ResponseEntity<FolderSaveResponse> save(FolderSaveRequest request) {
+    public ResponseEntity<FolderSaveResponse> save(@Valid FolderSaveRequest request) {
         Folder folder = managementUseCase.save(webMapper.toDomain(request));
 
         return ResponseEntity.created(URI.create("/temp"))

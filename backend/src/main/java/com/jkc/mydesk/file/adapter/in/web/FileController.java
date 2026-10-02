@@ -4,6 +4,7 @@ import com.jkc.mydesk.file.adapter.in.web.dto.request.FileUploadRequest;
 import com.jkc.mydesk.file.adapter.in.web.dto.response.FileUploadResponse;
 import com.jkc.mydesk.file.application.port.in.FileManagementUseCase;
 import com.jkc.mydesk.file.domain.model.File;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,7 +25,7 @@ public class FileController {
     // TODO Custom Exception 생성 IOException 대신 명확하게
     @PostMapping
     public ResponseEntity<FileUploadResponse> upload(
-            @ModelAttribute FileUploadRequest request
+            @Valid @ModelAttribute FileUploadRequest request
     ) throws IOException {
         File fileModel = webMapper.toDomain(request);
 

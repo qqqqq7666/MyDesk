@@ -1,7 +1,9 @@
 package com.jkc.mydesk.global.adapter.in.web.dto;
 
 import com.jkc.mydesk.global.domain.exception.ErrorCode;
+import lombok.Getter;
 
+@Getter
 public class ErrorResponse {
     private final int status;
     private final String code;

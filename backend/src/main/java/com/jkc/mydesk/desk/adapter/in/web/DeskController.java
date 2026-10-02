@@ -6,6 +6,7 @@ import com.jkc.mydesk.desk.adapter.in.web.dto.response.DeskSaveResponse;
 import com.jkc.mydesk.desk.application.port.in.DeskManagementUseCase;
 import com.jkc.mydesk.desk.application.port.in.DeskQueryUseCase;
 import com.jkc.mydesk.desk.domain.model.Desk;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class DeskController {
     private final DeskQueryUseCase queryUseCase;
 
     @PostMapping
-    public ResponseEntity<DeskSaveResponse> save(@RequestBody DeskSaveRequest request) {
+    public ResponseEntity<DeskSaveResponse> save(@Valid @RequestBody DeskSaveRequest request) {
         Desk savedDesk = managementUseCase.save(webMapper.toDomain(request));
 
         return ResponseEntity.created(URI.create("/temp"))

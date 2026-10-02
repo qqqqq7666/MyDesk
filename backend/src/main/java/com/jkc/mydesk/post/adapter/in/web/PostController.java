@@ -7,6 +7,7 @@ import com.jkc.mydesk.post.adapter.in.web.dto.response.PostSearchResponse;
 import com.jkc.mydesk.post.application.port.in.PostManagementUseCase;
 import com.jkc.mydesk.post.application.port.in.PostQueryUseCase;
 import com.jkc.mydesk.post.domain.model.Post;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +27,7 @@ public class PostController {
     private final PostWebMapper webMapper;
 
     @PostMapping
-    public ResponseEntity<PostSaveResponse> save(@RequestBody PostSaveRequest request) {
+    public ResponseEntity<PostSaveResponse> save(@Valid @RequestBody PostSaveRequest request) {
         Post post = managementUseCase.save(webMapper.toDomain(request));
 
         return ResponseEntity.created(URI.create("/temp"))
@@ -35,7 +36,7 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<PagedModel<PostSearchResponse>> search(
-            @ModelAttribute PostSearchRequest request,
+            @Valid @ModelAttribute PostSearchRequest request,
             @PageableDefault(size = 20) Pageable pageable
     ) {
         Page<Post> postPage = queryUseCase.search(request.folderId(), request.keyword(), pageable);
