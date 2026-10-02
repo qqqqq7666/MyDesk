@@ -19,7 +19,7 @@ public class PostJpaEntity extends BaseEntity {
     private Long folderId;
     @Column(nullable = false, length = 200)
     private String title;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", length = 100_000)
     private String content;
 
     public static PostJpaEntity from(Post post) {

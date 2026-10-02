@@ -19,7 +19,7 @@ public class UserJpaEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 320)
     private String email;
     @Column(nullable = false)
     private String password;
